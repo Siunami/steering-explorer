@@ -1,9 +1,13 @@
+const getBaseUrl = () => {
+	return process.env.NODE_ENV === "development"
+		? "http://localhost:5000"
+		: "https://steering-explorer-server.vercel.app";
+};
+
 export const fetchData = async (index) => {
 	console.log("fetching: " + index);
 	try {
-		const response = await fetch(
-			`https://steering-explorer-server.vercel.app/get_data?index=${index}`
-		);
+		const response = await fetch(`${getBaseUrl()}/get_data?index=${index}`);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
 		}
@@ -17,16 +21,13 @@ export const fetchData = async (index) => {
 export const fetchDescriptions = async (keys) => {
 	console.log("fetching descriptions for keys:", keys);
 	try {
-		const response = await fetch(
-			`https://steering-explorer-server.vercel.app/get_description`,
-			{
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify({ keys }),
-			}
-		);
+		const response = await fetch(`${getBaseUrl()}/get_description`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ keys }),
+		});
 
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
@@ -46,9 +47,7 @@ export const fetchSearchResults = async (searchQuery, setSearchResults) => {
 		return;
 	}
 	try {
-		const response = await fetch(
-			`https://steering-explorer-server.vercel.app/search/${searchQuery}`
-		);
+		const response = await fetch(`${getBaseUrl()}/search/${searchQuery}`);
 		const data = await response.json();
 		setSearchResults(data.slice(0, 40));
 	} catch (error) {
@@ -60,7 +59,7 @@ export const fetchTopEffects = async (feature) => {
 	console.log("fetching top effects for feature: " + feature);
 	try {
 		const response = await fetch(
-			`https://steering-explorer-server.vercel.app/get_top_effects?feature=${feature}`
+			`${getBaseUrl()}/get_top_effects?feature=${feature}`
 		);
 		if (!response.ok) {
 			throw new Error("Network response was not ok");
