@@ -1,7 +1,7 @@
 const getBaseUrl = () => {
 	return process.env.NODE_ENV === "development"
-		? "http://localhost:5000/get_data?index="
-		: "https://siunami--example-get-started-webapp-get-data-dev.modal.run?index=";
+		? "http://localhost:5000"
+		: "https://steering-explorer-server.vercel.app";
 };
 
 export const fetchData = async (index) => {
