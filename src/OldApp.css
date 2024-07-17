@@ -1,0 +1,381 @@
+.o-scope .row {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+}
+
+.o-scope .column {
+    display:flex;
+    flex-direction: column;
+    width:100%;
+}
+
+.o-scope .wrap {
+    flex-wrap: wrap;
+    /* word-wrap: break-word; 
+    word-break: break-all;  */
+}
+
+.o-scope .neuron-history {   
+    height: 60px;
+    border-bottom: 2px solid #e9ecef;
+    overflow-x: scroll;
+    position: relative;
+}
+
+.o-scope .neuron-history::-webkit-scrollbar {
+    display: none;  /* WebKit */
+}
+
+.o-scope .neuron-history > div {
+    min-width: 250px;
+    padding:10px;
+    border-right: 1px solid #e9ecef;
+    cursor: pointer;
+    user-select: none;
+}
+
+.o-scope .neuron-history > div:hover {
+    background-color: #b8b8b880;
+}
+
+.o-scope .scroll-left-button {
+    position: fixed;
+    left: 9px;
+    top: 9px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.o-scope .scroll-left-button:hover {
+    background-color: #007bff;
+    transform: scale(1.05);
+}
+
+.o-scope .scroll-left-button::before {
+    content: "◀";
+    color: #007bff;
+    font-size: 18px;
+}
+
+.o-scope .scroll-left-button:hover::before {
+    color: white;
+}
+
+/* Neuron Bar */
+
+.o-scope .neuron-view {
+    height: 250px;
+    display: flex;
+    border-bottom: 2px solid #e9ecef;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.o-scope .neuron-bar {
+    width: 20vw;
+    min-width: 300px;
+    max-width: 300px;
+    padding: 20px;
+    position: relative;
+    padding-bottom: 50px;
+}
+
+.o-scope .neuron-bar:first-child {
+    border-right: 2px solid #e9ecef;
+}
+
+.o-scope .neuron-bar:not(:first-child) {
+    background-color: #ffffff;
+}
+
+.o-scope .neuron-bar h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #333;
+}
+
+.o-scope .neuron-bar .input-group {
+    display: flex;
+    align-items: center;
+}
+
+.o-scope .input-group {
+    margin: 10px 0;
+}
+
+.o-scope .neuron-bar input[type="number"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.o-scope .neuron-bar button {
+    /* margin-left: 10px; */
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.o-scope .neuron-bar button:hover {
+    background-color: #0056b3;
+}
+
+.o-scope .neuron-bar input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.o-scope .related-neurons {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.o-scope .related-neurons:hover {
+    text-decoration: underline;
+}
+
+.o-scope .add-feature-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    font-size: 8px;
+    font-weight: bolder;
+    /* padding: 10px; */
+    border-radius: 0px !important;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.o-scope .down-arrow {
+    margin-left: 10px;
+}
+
+.o-scope .feature-link {
+    cursor: pointer;
+}
+
+/* Sankey */
+
+.o-scope .sankey-element {
+    background-color: black;
+    min-width: 30px;
+    max-width: 30px;
+    margin-top: 10px;
+    margin-right: 330px;
+    display: flex;
+    align-items: center;
+    position:relative;
+}
+
+.o-scope .sankey-element-text {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    white-space: nowrap;
+}
+
+
+/* Feature View */
+
+.o-scope .feature-title { 
+    font-size: 20px;
+    /* font-weight: bold; */
+    /* width: 100%; */
+    margin: 0px 15px 0px 0px;
+}
+
+.o-scope .feature-dampened {
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 15px;
+    color: lightgrey;
+}
+
+.o-scope .feature-view-container {
+    height:calc(100vh - 315px);
+    overflow-y: scroll;
+}
+
+.o-scope .feature-view {
+    background-color: #f3f3f3;
+    margin: 20px 20px;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+}
+
+.o-scope .feature-column {
+    flex: 1;
+    padding: 0 10px;
+}
+
+.o-scope .feature-column:first-child {
+    padding-left: 0;
+}
+
+.o-scope .feature-column:last-child {
+    padding-right: 0;
+}
+
+.o-scope .feature-details {
+    width: 100%;
+    /* margin: 30px 0; */
+    margin:0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.o-scope .feature-rows:first-child {
+    padding: 0px;
+}
+
+.o-scope .feature-details-row {
+    /* margin-top: 10px; */
+    position: relative;
+    overflow: visible;
+    padding: 30px 0 0 0;
+    
+}
+
+.o-scope .feature-bar {
+    background-color: #e0e0e0;
+    border: 1px solid #bdbdbd;
+    color: #333;
+    padding: 8px;
+    min-width: 60px;
+    height: 60px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    user-select: none;
+}
+
+.o-scope .feature-bar:hover {
+    background-color: #d0d0d0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.o-scope .feature-bar-index {
+    font-weight: 700;
+    font-size: 1.1em;
+    flex-shrink: 0;
+    margin-right: 5px;
+}
+
+.o-scope .feature-bar-description {
+    color: #666;
+    font-size: 0.5em;
+    text-align: right;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+    max-width: 100%;
+    max-height: 3em;
+    line-height: 1em;
+}
+
+.o-scope .related-feature {
+    color: rgb(223, 49, 49);
+    padding: 5px;
+    margin: 2px 0;
+    text-align: right;
+    overflow: visible; /* Changed from hidden to visible */
+    white-space: normal; /* Changed from wrap to normal */
+    word-wrap: break-word; /* Added to ensure wrapping */
+    max-width: 100%; /* Ensure it doesn't exceed the parent's width */
+}
+
+/* Search Results Styling */
+.o-scope .search-results {
+    max-height: 300px;
+    width: calc(100% - 40px);
+    overflow-y: auto;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute; 
+    z-index: 10; 
+}
+
+.o-scope .search-result-item {
+    padding: 10px 15px;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    z-index: 1;
+
+}
+
+.o-scope .search-result-item:last-child {
+    border-bottom: none;
+}
+
+.o-scope .search-result-item:hover {
+    background-color: #f8f9fa;
+}
+
+.o-scope .result-number {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.o-scope .result-description {
+    color: #333;
+}
+
+/* Old */
+
+.o-scope .iframe-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 680px;
+  height: 440px;
+  z-index: 1000;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.o-scope .neuronpedia-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+
+}

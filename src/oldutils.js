@@ -43,13 +43,13 @@ export const fetchDescriptions = async (keys) => {
 
 export const fetchSearchResults = async (searchQuery, setSearchResults) => {
 	if (searchQuery.trim().length < 2) {
-		// setSearchResults([]);
+		setSearchResults([]);
 		return;
 	}
 	try {
 		const response = await fetch(`${getBaseUrl()}/search/${searchQuery}`);
 		const data = await response.json();
-		// setSearchResults(data.slice(0, 40));
+		setSearchResults(data.slice(0, 40));
 		return data;
 	} catch (error) {
 		console.error("Error fetching search results:", error);
